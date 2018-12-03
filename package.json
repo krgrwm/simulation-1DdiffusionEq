@@ -1,0 +1,38 @@
+{
+  "name": "diffusion",
+  "version": "1.0.0",
+  "main": "main.js",
+  "dependencies": {
+    "@types/dat.gui": "^0.7.2",
+    "@types/mathjs": "^4.4.3",
+    "dat.gui": "^0.7.3",
+    "mathjs": "^5.2.3",
+    "pixi.js": "^4.8.2",
+    "typescript": "^3.1.6",
+    "mylib": "file:../mylib"
+  },
+  "devDependencies": {
+    "@types/pixi.js": "^4.8.3",
+    "ts-loader": "^5.3.0",
+    "tsc-watch": "^1.0.30",
+    "webpack": "^4.25.1",
+    "webpack-cli": "^3.1.2",
+    "webpack-dev-server": "^3.1.10"
+  },
+  "scripts": {
+    "build": "webpack --mode=development",
+    "start": "webpack-dev-server --mode=development"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/krgrwm/pixi-water.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/krgrwm/pixi-water/issues"
+  },
+  "homepage": "https://github.com/krgrwm/pixi-water#readme",
+  "keywords": [],
+  "description": ""
+}
