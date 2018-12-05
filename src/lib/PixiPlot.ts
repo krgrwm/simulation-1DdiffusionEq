@@ -1,5 +1,5 @@
 import * as PIXI from 'pixi.js';
-import {Range} from './math'
+import {Range, Func} from './math'
 import * as PLOT from './plot'
 
 export interface WinConfig
@@ -13,6 +13,14 @@ export interface PlotConfig
   dx: number
   xrange: Range
   yrange: Range
+}
+
+export interface Plottable
+{
+  g: PIXI.Graphics
+  lineWidth: number
+  color: number
+  f: Func
 }
 
 export class PixiPlot {
@@ -89,6 +97,14 @@ export class PixiPlot {
     }
 
     let pos = e.data.getLocalPosition(this.parent)
+    const inRangeX = 0 < pos.x && pos.x < this.winConfig.winX
+    const inRangeY = 0 < pos.y && pos.y < this.winConfig.winY
+
+    if (!inRangeX || !inRangeY) {
+      this.isDown = false
+      return
+    }
+
     this.onPointerMove(this.g_input, pos)
   }
 

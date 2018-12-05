@@ -31,6 +31,7 @@ export class Diffusion implements IDiffusionEqSolver
   t: number = 0
 
   xrange: Range
+  arrayRange: Range
 
   finit:  Func
   fbound: Func
@@ -45,6 +46,7 @@ export class Diffusion implements IDiffusionEqSolver
     this.N = p.N
     this.ar = new Array(p.N)
     this.ar_calc = new Array(p.N)
+    this.arrayRange = new Range(0, p.N-1)
 
     this.finit = finit
     this.fbound = fbound
@@ -106,7 +108,7 @@ export class Diffusion implements IDiffusionEqSolver
   private setInitialValue() {
     for (let i=0; i < this.ar.length; i++)
     {
-      this.ar[i] = this.finit(i)
+      this.ar[i] = this.finit(convertRange(i, this.arrayRange, this.xrange))
     }
     this.t = 0
   }
